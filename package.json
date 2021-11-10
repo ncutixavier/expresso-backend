@@ -1,0 +1,40 @@
+{
+  "name": "expresso-backend",
+  "version": "1.0.0",
+  "description": "Capstone Project: Expresso",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ncutixavier/expresso-backend.git"
+  },
+  "keywords": [],
+  "author": "ncutixavier",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.1.2",
+    "cors": "^2.8.5",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "mocha": "^3.5.0",
+    "morgan": "^1.10.0",
+    "sqlite3": "^5.0.2",
+    "supertest": "^3.0.0",
+    "swagger-ui-express": "^4.1.6",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "nodemon": "^2.0.15"
+  },
+  "bugs": {
+    "url": "https://github.com/ncutixavier/expresso-backend/issues"
+  },
+  "homepage": "https://github.com/ncutixavier/expresso-backend#readme"
+}
