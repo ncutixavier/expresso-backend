@@ -124,6 +124,144 @@
           }
         }
       }
+    },
+    "/api/employees/{id}/timesheets": {
+      "get": {
+        "tags": ["Timesheets"],
+        "summary": "Get employee timesheet by id",
+        "description": "Get employee timesheet by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Employee id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Timesheets"],
+        "summary": "Create a new timesheet",
+        "description": "Create a new timesheet",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Employee id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Timesheet object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Timesheet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/employees/{employeeId}/timesheets/{timesheetId}": {
+      "get": {
+        "tags": ["Timesheets"],
+        "summary": "Get timesheet by id",
+        "description": "Get timesheet by id",
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "description": "Employee id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "timesheetId",
+            "in": "path",
+            "description": "Timesheet id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Timesheets"],
+        "summary": "Update timesheet by id",
+        "description": "Update timesheet by id",
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "description": "Employee id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "timesheetId",
+            "in": "path",
+            "description": "Timesheet id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Timesheet object that needs to be updated in the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Timesheet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Timesheets"],
+        "summary": "Delete timesheet by id",
+        "description": "Delete timesheet by id",
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "description": "Employee id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "timesheetId",
+            "in": "path",
+            "description": "Timesheet id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -142,6 +280,23 @@
         "is_current_employee": {
           "type": "integer",
           "format": "int64"
+        }
+      }
+    },
+    "Timesheet": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "hours": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rate": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     }
