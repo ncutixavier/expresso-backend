@@ -262,6 +262,245 @@
           }
         }
       }
+    },
+    "/api/menus": {
+      "get": {
+        "tags": ["Menu"],
+        "summary": "Get all menus",
+        "description": "Get all menus",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Menu"],
+        "summary": "Create a new menu",
+        "description": "Create a new menu",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Menu object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Menu"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/menus/{id}": {
+      "get": {
+        "tags": ["Menu"],
+        "summary": "Get menu by id",
+        "description": "Get menu by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Menu id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Menu"],
+        "summary": "Update menu by id",
+        "description": "Update menu by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Menu id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Menu object that needs to be updated in the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Menu"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Menu"],
+        "summary": "Delete menu by id",
+        "description": "Delete menu by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Menu id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/menus/{menuId}/menu-items": {
+      "get": {
+        "tags": ["Menu Items"],
+        "summary": "Get all menu items",
+        "description": "Get all menu items",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "description": "Menu id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Menu Items"],
+        "summary": "Create a new menu item",
+        "description": "Create a new menu item",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "description": "Menu id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Menu item object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MenuItem"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/menus/{menuId}/menu-items/{menuItemId}": {
+      "get": {
+        "tags": ["Menu Items"],
+        "summary": "Get menu item by id",
+        "description": "Get menu item by id",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "description": "Menu id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "menuItemId",
+            "in": "path",
+            "description": "Menu item id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Menu Items"],
+        "summary": "Update menu item by id",
+        "description": "Update menu item by id",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "description": "Menu id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "menuItemId",
+            "in": "path",
+            "description": "Menu item id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Menu item object that needs to be updated in the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MenuItem"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Menu Items"],
+        "summary": "Delete menu item by id",
+        "description": "Delete menu item by id",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "description": "Menu id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "menuItemId",
+            "in": "path",
+            "description": "Menu item id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -297,6 +536,31 @@
         "rate": {
           "type": "integer",
           "format": "int32"
+        }
+      }
+    },
+    "Menu": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "MenuItem": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "inventory": {
+          "type": "integer"
+        },
+        "price": {
+          "type": "integer"
         }
       }
     }

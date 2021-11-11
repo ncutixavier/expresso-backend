@@ -4,10 +4,8 @@ const db = new sqlite3.Database(
 );
 
 db.serialize(() => {
-  db.run(`
-        DROP TABLE IF EXISTS Employee;
-    `);
-  db.run(`
-        DROP TABLE IF EXISTS Timesheet;
-    `);
+  db.run(`DROP TABLE IF EXISTS Employee;`);
+  db.run(`DROP TABLE IF EXISTS Timesheet;`);
+  db.run(`DROP TABLE IF EXISTS Menu;`);
+  db.run(`DROP TABLE IF EXISTS MenuItem;`);
 });

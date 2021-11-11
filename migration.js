@@ -13,6 +13,7 @@ db.serialize(() => {
             is_current_employee INTEGER DEFAULT 1
         );
     `);
+
   db.run(`
         CREATE TABLE IF NOT EXISTS Timesheet (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -23,4 +24,24 @@ db.serialize(() => {
             FOREIGN KEY (employee_id) REFERENCES Employee(id)
         );
     `);
+
+  db.run(`
+        CREATE TABLE IF NOT EXISTS Menu (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL
+        );
+  `);
+
+  db.run(`
+        CREATE TABLE IF NOT EXISTS MenuItem (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            description TEXT NOT NULL,
+            inventory INTEGER NOT NULL,
+            price INTEGER NOT NULL,
+            menu_id INTEGER NOT NULL,
+            FOREIGN KEY (menu_id) REFERENCES Menu(id)
+        );
+  `);
+
 });
