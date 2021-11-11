@@ -10,35 +10,6 @@ The Expresso internal tool should allow users to:
 - Create, view, update, and delete employees
 - Create, view, update, and delete employee's timesheets
 
-You can view all of this functionality in action in the video below:
-
-<video width="100%" height="100%" controls>
-   <source src="https://s3.amazonaws.com/codecademy-content/programs/build-apis/solution-videos/Expresso480.mov" type="video/mp4">
- The markdown processor does not support the video tag.
-</video>
-
-## How To Begin
-
-To start, download the starting code for this project <a href="https://s3.amazonaws.com/codecademy-content/PRO/skill-paths/backend-javascript/projects/expresso/capstone-project-2-expresso-start.zip" target="_blank">here</a>. After downloading the zip folder, double click it to uncompress it and access the contents of this project.
-
-To view your local version of the site, open **index.html** in Google Chrome.
-
-## Implementation Details
-
-To complete this project, you will need to create the database tables and API routes specified below.
-
-To test this functionality you can run the testing suite and interact with the API via the provided front-end. If you want more data to interact with in the front-end, you can run the **seed.js** file to add data to your database.
-
-We've provided an empty **migration.js** file for you to write table creation logic in.
-
-In order for the tests and provided front-end to run properly, you will need to make sure to:
-- Create and export your Express app from a root-level file called **server.js**
-- Accept and set an optional port argument for your server to listen on from `process.env.PORT`
-- If `process.env.PORT` is not set, server should run on port `4000` (this is where the provided front-end will make requests to)
-- Accept and set an optional database file argument from `process.env.TEST_DATABASE` in all Express route files that open and modify your database
-- Use the root-level **database.sqlite** as your API's database
-- **Note:** When loading **database.sqlite** in your JavaScript files, sqlite3 will always try to load **database.sqlite** from the root directory path, `./database.sqlite`, regardless of where the current file is located. Therefore your code will always be `new sqlite3.Database(process.env.TEST_DATABASE || './database.sqlite')` regardless of the file you are writing in 
-
 ### Database Table Properties
 
 * **Employee**
@@ -151,16 +122,14 @@ In order for the tests and provided front-end to run properly, you will need to 
 
 ## Testing
 
-A testing suite has been provided for you, checking for all essential functionality and
-edge cases.
+### Manually testing
 
-To run these tests, first, open the root project directory in your terminal. Then run `npm install` to install
-all necessary testing dependencies (if you haven't already).
-Finally, run `npm test`. You will see a list of tests that ran with information
-about whether or not each test passed. After this list, you will see more specific output
-about why each failing test failed.
+- Clone repo through this [link](https://github.com/ncutixavier/expresso-backend.git)
+- Run` npm install`
+- Then run "npm run dev"
+- When server starts, open API Documentaion [http://localhost:4000/api-docs/](http://localhost:4000/api-docs/)
 
-As you implement functionality, run the tests to
-ensure you are creating correctly named variables and functions that return the proper values.
-The tests will additionally help you identify edge cases that you may not have anticipated
-when first writing the functions.
+### Remote testing
+
+- Open [API Documentaion](https://expresso-backend.herokuapp.com/api-docs/)
+- Feel free to test any endpoint and some of them have dummy data.
